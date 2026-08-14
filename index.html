@@ -1,16 +1,355 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PROJEKT SENS | System Operacyjny Państwa</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SENS OS // Moduł Audytowy: Efekt Klifu</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { -webkit-font-smoothing: antialiased; }
+  body { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #262626; }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #262626;
+    border-radius: 2px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -7px;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    background: #34d399;
+    border: 2px solid #052e1f;
+    box-shadow: 0 0 0 2px #34d39955;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: #262626;
+    border-radius: 2px;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background: #34d399;
+    border: 2px solid #052e1f;
+  }
+  input[type="range"].danger::-webkit-slider-thumb { background: #ef4444; box-shadow: 0 0 0 2px #ef444455; }
+  input[type="range"].danger::-moz-range-thumb { background: #ef4444; }
+
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  .cursor-blink { animation: blink 1.1s step-start infinite; }
+
+  @keyframes pulse-danger {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.35); }
+    50% { box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+  }
+  .pulse-danger { animation: pulse-danger 1.6s ease-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-blink, .pulse-danger { animation: none; }
+  }
+
+  .step-bar { transition: height 400ms ease, background-color 400ms ease, box-shadow 400ms ease; }
+  .marker { transition: left 300ms ease, bottom 400ms ease; }
+</style>
 </head>
-<body class="bg-neutral-950 text-neutral-100 flex items-center justify-center min-h-screen font-mono">
-  <div class="border border-neutral-800 p-8 rounded-lg max-w-md w-full text-center">
-    <div class="text-xs uppercase tracking-widest text-neutral-500 mb-2">Status Systemu</div>
-    <h1 class="text-xl font-bold text-emerald-400 mb-4">● SENS OS ONLINE</h1>
-    <p class="text-sm text-neutral-400">Infrastruktura Vercel + GitHub zsynchronizowana. Oczekiwanie na moduł Kalkulatora Klifu.</p>
+<body class="bg-neutral-950 text-neutral-300 min-h-screen">
+
+  <div class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
+
+    <!-- HEADER -->
+    <header class="mb-8 border-b border-neutral-800 pb-4">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <h1 class="text-emerald-400 text-sm sm:text-base tracking-tight">
+          SENS OS <span class="text-neutral-600">//</span> MODUŁ AUDYTOWY: EFEKT KLIFU (RYCZAŁT)<span class="cursor-blink">_</span>
+        </h1>
+        <span class="text-[10px] text-neutral-600 border border-neutral-800 px-2 py-0.5 rounded">STAN: 2026</span>
+      </div>
+      <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+        Symulacja rocznej składki zdrowotnej na ryczałcie ewidencjonowanym. Dane liczone narastająco — próg 60&nbsp;000&nbsp;zł / 300&nbsp;000&nbsp;zł przychodu rocznego.
+      </p>
+    </header>
+
+    <!-- INPUT -->
+    <section class="mb-8">
+      <label for="revenue" class="block text-xs text-neutral-500 mb-2 tracking-wide">
+        PRZYCHÓD ROCZNY (NARASTAJĄCO) [PLN]
+      </label>
+      <input
+        id="revenueInput"
+        type="number"
+        min="0"
+        step="100"
+        value="58000"
+        class="w-full bg-neutral-900 border border-neutral-800 rounded-md px-4 py-3 text-xl sm:text-2xl text-neutral-100 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 focus:border-emerald-400/60 tracking-tight"
+      />
+      <input
+        id="revenueSlider"
+        type="range"
+        min="0"
+        max="400000"
+        step="500"
+        value="58000"
+        class="w-full mt-4"
+      />
+      <div class="flex justify-between text-[10px] text-neutral-600 mt-1">
+        <span>0 zł</span>
+        <span class="text-neutral-700">|60 000</span>
+        <span class="text-neutral-700">|300 000</span>
+        <span>400 000 zł+</span>
+      </div>
+    </section>
+
+    <!-- STAWKA RYCZAŁTU (dla ulgi 50%) -->
+    <section class="mb-8">
+      <label for="rateSelect" class="block text-xs text-neutral-500 mb-2 tracking-wide">
+        STAWKA RYCZAŁTU (DO WYLICZENIA ULGI 50% SKŁADKI)
+      </label>
+      <select
+        id="rateSelect"
+        class="w-full bg-neutral-900 border border-neutral-800 rounded-md px-4 py-3 text-sm sm:text-base text-neutral-100 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 focus:border-emerald-400/60"
+      >
+        <option value="0.17">17% — wolne zawody, część usług</option>
+        <option value="0.15">15% — większość usług</option>
+        <option value="0.14">14% — usługi w ochronie zdrowia, architektura</option>
+        <option value="0.12" selected>12% — IT, programowanie</option>
+        <option value="0.10">10% — najem prywatny (wybrane przypadki)</option>
+        <option value="0.085">8,5% — handel, gastronomia, część usług</option>
+        <option value="0.055">5,5% — roboty budowlane, produkcja</option>
+        <option value="0.03">3% — handel towarami, gastronomia (napoje)</option>
+      </select>
+      <p class="text-[10px] text-neutral-600 mt-2 leading-relaxed">
+        Odliczenie: 50% zapłaconej rocznej składki zdrowotnej pomniejsza podstawę opodatkowania ryczałtem — nie samą składkę ZUS.
+      </p>
+    </section>
+
+    <!-- STATS -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+      <div class="border border-neutral-800 rounded-md p-4 bg-neutral-900/40">
+        <div class="text-[10px] text-neutral-500 mb-1 tracking-wide">PRÓG AKTYWNY</div>
+        <div id="tierName" class="text-lg text-neutral-100">—</div>
+      </div>
+      <div class="border border-neutral-800 rounded-md p-4 bg-neutral-900/40">
+        <div class="text-[10px] text-neutral-500 mb-1 tracking-wide">SKŁADKA MIESIĘCZNA</div>
+        <div id="monthlyValue" class="text-lg text-neutral-100">—</div>
+      </div>
+      <div class="border border-neutral-800 rounded-md p-4 bg-neutral-900/40">
+        <div class="text-[10px] text-neutral-500 mb-1 tracking-wide">SKŁADKA ROCZNA (ZUS)</div>
+        <div id="annualValue" class="text-lg text-neutral-100">—</div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+      <div class="border border-emerald-900/60 rounded-md p-4 bg-emerald-950/10">
+        <div class="text-[10px] text-emerald-500/80 mb-1 tracking-wide">ULGA PODATKOWA (ROCZNIE, 50% SKŁADKI)</div>
+        <div id="reliefValue" class="text-lg text-emerald-300">—</div>
+      </div>
+      <div class="border border-neutral-800 rounded-md p-4 bg-neutral-900/40">
+        <div class="text-[10px] text-neutral-500 mb-1 tracking-wide">REALNY KOSZT ROCZNY (PO ULDZE)</div>
+        <div id="netCostValue" class="text-lg text-neutral-100">—</div>
+      </div>
+    </section>
+
+    <!-- CLIFF VISUALIZATION (SIGNATURE ELEMENT) -->
+    <section class="mb-8">
+      <div class="text-[10px] text-neutral-500 mb-3 tracking-wide">WIZUALIZACJA KLIFU — SKŁADKA ROCZNA WG PROGU</div>
+      <div class="border border-neutral-800 rounded-md bg-neutral-900/40 p-4 sm:p-6">
+        <div class="relative flex items-end justify-around h-40 sm:h-48 gap-3 sm:gap-6">
+          <!-- marker -->
+          <div id="marker" class="marker absolute -top-6 text-red-500 text-xs font-bold" style="left: 16%;">▼</div>
+
+          <div class="flex flex-col items-center flex-1">
+            <div id="bar1" class="step-bar w-full max-w-16 bg-neutral-700 rounded-t-sm" style="height: 33%;"></div>
+            <div class="mt-2 text-[10px] text-neutral-500 text-center">PRÓG 1<br/><span class="text-neutral-600">0–60k</span></div>
+          </div>
+          <div class="flex flex-col items-center flex-1">
+            <div id="bar2" class="step-bar w-full max-w-16 bg-neutral-700 rounded-t-sm" style="height: 55%;"></div>
+            <div class="mt-2 text-[10px] text-neutral-500 text-center">PRÓG 2<br/><span class="text-neutral-600">60k–300k</span></div>
+          </div>
+          <div class="flex flex-col items-center flex-1">
+            <div id="bar3" class="step-bar w-full max-w-16 bg-neutral-700 rounded-t-sm" style="height: 100%;"></div>
+            <div class="mt-2 text-[10px] text-neutral-500 text-center">PRÓG 3<br/><span class="text-neutral-600">300k+</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERT BOX -->
+    <section id="alertBox" class="border rounded-md p-5 mb-8 transition-colors duration-300">
+      <div id="alertLabel" class="text-xs tracking-wide mb-2">STATUS</div>
+      <div id="alertMessage" class="text-sm sm:text-base leading-relaxed"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-[10px] text-neutral-600 leading-relaxed border-t border-neutral-800 pt-4">
+      Podstawa: przeciętne wynagrodzenie w sektorze przedsiębiorstw IV kw. 2025 (GUS) × 9%. Metoda progresywna (narastająco).
+      Ulga: 50% zapłaconej rocznej składki zdrowotnej pomniejsza podstawę opodatkowania ryczałtem — wybierz stawkę właściwą dla Twojej działalności powyżej.
+      Źródło danych: ZUS.pl, inFakt.pl, CGO Legal. Projekt S.E.N.S. — dane weryfikowalne, kod otwarty, patrz <code class="text-neutral-500">stawki_2025_2026.json</code>.
+      <br/><span class="text-neutral-700">Narzędzie ma charakter edukacyjny i poglądowy — nie stanowi porady podatkowej ani prawnej. Nie uwzględnia innych ulg, składek społecznych ani indywidualnej sytuacji podatnika.</span>
+    </footer>
+
   </div>
+
+<script>
+  // Dane zgodne ze stawki_2025_2026.json -> efekt_klifu_ryczalt_2026
+  const TIERS = [
+    { name: 'PRÓG 1', low: 0,        high: 60000,   monthly: 498.35,  annual: 5980.20  },
+    { name: 'PRÓG 2', low: 60000,    high: 300000,  monthly: 830.58,  annual: 9966.96  },
+    { name: 'PRÓG 3', low: 300000,   high: Infinity, monthly: 1495.04, annual: 17940.48 },
+  ];
+  const BOUNDARIES = [60000, 300000];
+  const WARNING_ZONE = 5000; // zł odległości, w której zaczynamy ostrzegać
+
+  const revenueInput  = document.getElementById('revenueInput');
+  const revenueSlider = document.getElementById('revenueSlider');
+  const rateSelect     = document.getElementById('rateSelect');
+  const tierNameEl    = document.getElementById('tierName');
+  const monthlyEl     = document.getElementById('monthlyValue');
+  const annualEl      = document.getElementById('annualValue');
+  const reliefEl       = document.getElementById('reliefValue');
+  const netCostEl      = document.getElementById('netCostValue');
+  const alertBox       = document.getElementById('alertBox');
+  const alertLabel     = document.getElementById('alertLabel');
+  const alertMessage   = document.getElementById('alertMessage');
+  const marker         = document.getElementById('marker');
+  const bars = [document.getElementById('bar1'), document.getElementById('bar2'), document.getElementById('bar3')];
+
+  const fmt = (n) => new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' zł';
+
+  function getTierIndex(revenue) {
+    if (revenue <= 60000) return 0;
+    if (revenue <= 300000) return 1;
+    return 2;
+  }
+
+  function setAlertStyle(mode) {
+    // mode: 'danger' | 'warning' | 'safe'
+    alertBox.classList.remove('pulse-danger', 'border-red-500', 'border-amber-500', 'border-emerald-500/50',
+      'bg-red-950/30', 'bg-amber-950/20', 'bg-emerald-950/10');
+    if (mode === 'danger') {
+      alertBox.classList.add('border-red-500', 'bg-red-950/30', 'pulse-danger');
+      alertLabel.className = 'text-xs tracking-wide mb-2 text-red-400';
+      alertMessage.className = 'text-sm sm:text-base leading-relaxed text-red-400 font-bold';
+    } else if (mode === 'warning') {
+      alertBox.classList.add('border-amber-500', 'bg-amber-950/20');
+      alertLabel.className = 'text-xs tracking-wide mb-2 text-amber-400';
+      alertMessage.className = 'text-sm sm:text-base leading-relaxed text-amber-300';
+    } else {
+      alertBox.classList.add('border-emerald-500/50', 'bg-emerald-950/10');
+      alertLabel.className = 'text-xs tracking-wide mb-2 text-emerald-400';
+      alertMessage.className = 'text-sm sm:text-base leading-relaxed text-emerald-300';
+    }
+  }
+
+  function update(rawValue) {
+    const revenue = Math.max(0, Number(rawValue) || 0);
+    const rate = Number(rateSelect.value);
+    const idx = getTierIndex(revenue);
+    const tier = TIERS[idx];
+
+    // Ulga: 50% zapłaconej rocznej składki pomniejsza PODSTAWĘ opodatkowania (przychód),
+    // realna oszczędność podatkowa = 0,5 * składka_roczna * stawka_ryczałtu.
+    const relief = 0.5 * tier.annual * rate;
+    const netCost = tier.annual - relief;
+
+    tierNameEl.textContent = tier.name + ' (' + fmt(revenue).replace(' zł','') + ' zł przychodu)';
+    monthlyEl.textContent = fmt(tier.monthly);
+    annualEl.textContent = fmt(tier.annual);
+    reliefEl.textContent = fmt(relief);
+    netCostEl.textContent = fmt(netCost);
+
+    // --- wizualizacja: podświetl aktywny słupek, przygaś resztę ---
+    bars.forEach((bar, i) => {
+      if (i === idx) {
+        bar.classList.remove('bg-neutral-700');
+        bar.classList.add('bg-red-500');
+        bar.style.boxShadow = '0 0 16px 2px rgba(239,68,68,0.35)';
+      } else {
+        bar.classList.add('bg-neutral-700');
+        bar.classList.remove('bg-red-500');
+        bar.style.boxShadow = 'none';
+      }
+    });
+    marker.style.left = (idx === 0 ? 16 : idx === 1 ? 50 : 84) + '%';
+
+    // --- najbliższa granica ---
+    let nearestBoundary = null, nearestDistanceSigned = Infinity;
+    BOUNDARIES.forEach((b) => {
+      const d = revenue - b;
+      if (Math.abs(d) < Math.abs(nearestDistanceSigned)) { nearestDistanceSigned = d; nearestBoundary = b; }
+    });
+
+    const boundaryIdx = BOUNDARIES.indexOf(nearestBoundary);
+    const tierBelow = TIERS[boundaryIdx];
+    const tierAbove = TIERS[boundaryIdx + 1];
+    const jumpBrutto = tierAbove.annual - tierBelow.annual;
+    // Dodatkowa ulga podatkowa wynikająca z wyższej składki po przekroczeniu progu:
+    const jumpRelief = 0.5 * jumpBrutto * rate;
+    const jumpNetto = jumpBrutto - jumpRelief;
+
+    revenueSlider.classList.remove('danger');
+
+    if (Math.abs(nearestDistanceSigned) <= WARNING_ZONE) {
+      if (nearestDistanceSigned < 0) {
+        // zbliża się od dołu
+        const distanceToCliff = Math.abs(nearestDistanceSigned);
+        setAlertStyle('warning');
+        alertLabel.textContent = '⚠ STREFA OSTRZEGAWCZA';
+        alertMessage.innerHTML =
+          `Jesteś <strong>${fmt(distanceToCliff)}</strong> od klifu przy ${fmt(nearestBoundary)}. ` +
+          `Przekroczenie tego progu podniesie Twoją składkę roczną o <strong>${fmt(jumpBrutto)}</strong> (brutto). ` +
+          `Nawet po uwzględnieniu ulgi 50% składki (oszczędność podatkowa ${fmt(jumpRelief)} przy stawce ${(rate*100).toString().replace('.', ',')}%), ` +
+          `realna strata netto to wciąż <strong>${fmt(jumpNetto)}</strong> — za zarobienie zaledwie kilku złotych więcej.`;
+      } else {
+        // przekroczył, świeżo nad progiem
+        setAlertStyle('danger');
+        alertLabel.textContent = '⛔ EFEKT KLIFU — WYKRYTO STRATĘ';
+        alertMessage.innerHTML =
+          `Przekroczyłeś próg ${fmt(nearestBoundary)} o zaledwie <strong>${fmt(nearestDistanceSigned)}</strong>. ` +
+          `Brutto kosztowało Cię to <strong>+${fmt(jumpBrutto)} rocznie</strong> w składce ZUS. ` +
+          `Ulga 50% (stawka ${(rate*100).toString().replace('.', ',')}%) oddaje z tego ${fmt(jumpRelief)} — ` +
+          `więc realna strata netto to wciąż <strong>+${fmt(jumpNetto)} rocznie</strong>. To nie jest podatek proporcjonalny — to skok.`;
+        revenueSlider.classList.add('danger');
+      }
+    } else {
+      setAlertStyle('safe');
+      alertLabel.textContent = '● STATUS: STABILNY';
+      if (idx === 2) {
+        alertMessage.textContent =
+          `Jesteś w najwyższym progu. Powyżej 300 000 zł składka się nie zmienia — system relatywnie mniej obciąża najwyższe przychody niż tych balansujących tuż nad granicą progu.`;
+      } else {
+        alertMessage.textContent =
+          `Przychód w bezpiecznej strefie progu ${tier.name.toLowerCase()}. Brak ryzyka nagłego wzrostu składki w najbliższym otoczeniu tej kwoty.`;
+      }
+    }
+  }
+
+  revenueInput.addEventListener('input', (e) => {
+    const v = e.target.value;
+    if (Number(v) <= 400000) revenueSlider.value = v;
+    update(v);
+  });
+  revenueSlider.addEventListener('input', (e) => {
+    revenueInput.value = e.target.value;
+    update(e.target.value);
+  });
+  rateSelect.addEventListener('change', () => update(revenueInput.value));
+
+  update(revenueInput.value);
+</script>
+
 </body>
 </html>
