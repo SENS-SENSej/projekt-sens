@@ -1,87 +1,290 @@
-<!DOCTYPE html>
+html_code = """<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENS OS | System Operacyjny Państwa</title>
+    <title>SENS | Państwo można zaprojektować lepiej</title>
+    <meta name="description" content="Projekt SENS – Niezależna platforma audytu przepisów, kalkulatorów strat podatkowych i otwartego projektowania zasad państwa. Liczby > plemię.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Courier New', Courier, monospace; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #262626; }
-        ::-webkit-scrollbar-thumb:hover { background: #404040; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="bg-neutral-950 text-neutral-300 min-h-screen p-4 md:p-8 flex justify-center">
-    <div class="max-w-4xl w-full">
-        <!-- Header -->
-        <header class="border-b border-neutral-800 pb-4 mb-8 flex justify-between items-end">
-            <div>
-                <div class="text-xs text-neutral-500 mb-1 tracking-widest">PROJEKT SENS // TERMINAL DOSTĘPOWY</div>
-                <h1 class="text-2xl md:text-3xl font-bold text-emerald-400">SENS OS _</h1>
+<body class="bg-[#0c0d0e] text-neutral-200 antialiased selection:bg-emerald-500/20 selection:text-emerald-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Bar -->
+    <header class="border-b border-neutral-800/80 bg-[#0c0d0e]/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="w-3 h-3 bg-emerald-500 rounded-sm"></span>
+                <span class="text-xl font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">SENS.</span>
+            </a>
+            <nav class="flex items-center gap-4 sm:gap-6 text-sm font-medium text-neutral-400">
+                <a href="#narzedzia" class="hover:text-white transition-colors">Narzędzia</a>
+                <a href="#laboratorium" class="hover:text-white transition-colors">Laboratorium</a>
+                <a href="#konstytucja" class="hover:text-white transition-colors">Konstytucja SENS</a>
+                <a href="klif.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-800 text-neutral-200 hover:bg-emerald-600 hover:text-white transition-all text-xs font-semibold">
+                    Kalkulator Klifu →
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-5 py-12 sm:py-16 w-full space-y-20">
+
+        <!-- Hero Section -->
+        <section class="text-center max-w-3xl mx-auto space-y-6 pt-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 text-xs font-medium text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Inicjatywa Obywatelska & Audyt Przejrzystości
             </div>
-            <div class="text-xs text-emerald-500 animate-pulse tracking-widest">● SYSTEM ONLINE</div>
-        </header>
-
-        <!-- Manifest -->
-        <section class="mb-12 border border-neutral-800 p-6 rounded bg-neutral-900/50 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
-            <h2 class="text-xl text-neutral-100 mb-4 uppercase tracking-wider">01. Manifest Systemowy</h2>
-            <p class="mb-4 text-sm md:text-base leading-relaxed">
-                Państwo nie jest bytem mistycznym. Jest skomplikowanym systemem informatycznym. Obecnie działa na przestarzałym kodzie, pełnym luk bezpieczeństwa, długu technologicznego i sprzecznych algorytmów, które generują straty dla obywateli.
-            </p>
-            <p class="text-sm md:text-base leading-relaxed">
-                Projekt SENS to ruch inżynieryjny. Naszym celem jest zdebugowanie państwa i wdrożenie nowej architektury publicznej – od nowa napisanej Konstytucji, opierającej się na twardych, weryfikowalnych danych, a nie ideologicznym chaosie.
-            </p>
-        </section>
-
-        <!-- Konstytucja / Filary -->
-        <section class="mb-12">
-            <h2 class="text-xl text-neutral-100 mb-6 uppercase tracking-wider border-b border-neutral-800 pb-2">02. Architektura Systemu (Konstytucja)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="border border-neutral-800 p-5 rounded hover:border-emerald-500/50 transition-colors bg-neutral-950">
-                    <div class="text-emerald-400 text-xs mb-2 font-bold tracking-widest">[ ROOT_ACCESS ]</div>
-                    <h3 class="text-neutral-100 font-bold mb-2">Rozdział Logiczny</h3>
-                    <p class="text-sm text-neutral-400">Bezwzględny rozdział backendu (Rząd) od frontendu (Sejm). Kategoryczny zakaz łączenia funkcji wykonawczych i ustawodawczych.</p>
-                </div>
-                <div class="border border-neutral-800 p-5 rounded hover:border-emerald-500/50 transition-colors bg-neutral-950">
-                    <div class="text-emerald-400 text-xs mb-2 font-bold tracking-widest">[ FIREWALL ]</div>
-                    <h3 class="text-neutral-100 font-bold mb-2">Kwarantanna Systemowa</h3>
-                    <p class="text-sm text-neutral-400">10-letnia blokada (kwarantanna polityczna) dla funkcjonariuszy partyjnych kandydujących do organów sądowniczych.</p>
-                </div>
-                <div class="border border-neutral-800 p-5 rounded hover:border-emerald-500/50 transition-colors bg-neutral-950">
-                    <div class="text-emerald-400 text-xs mb-2 font-bold tracking-widest">[ USER_PRIVILEGES ]</div>
-                    <h3 class="text-neutral-100 font-bold mb-2">Uprawnienia ROOT dla Obywateli</h3>
-                    <p class="text-sm text-neutral-400">Bezpośrednia władza wetyzacji wadliwych pakietów ustaw. Zdecentralizowane, cyfrowe referenda ostateczne.</p>
-                </div>
-                <div class="border border-neutral-800 p-5 rounded hover:border-emerald-500/50 transition-colors bg-neutral-950">
-                    <div class="text-emerald-400 text-xs mb-2 font-bold tracking-widest">[ DATA_VALIDATION ]</div>
-                    <h3 class="text-neutral-100 font-bold mb-2">Zgodność Danych</h3>
-                    <p class="text-sm text-neutral-400">Obligatoryjny zakaz wdrażania zmian podatkowych bez wcześniejszej symulacji algorytmicznej, wykluczającej "efekty klifu".</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Moduły / Narzędzia -->
-        <section class="mb-12">
-            <h2 class="text-xl text-neutral-100 mb-6 uppercase tracking-wider border-b border-neutral-800 pb-2">03. Aktywne Moduły Audytowe</h2>
             
-            <a href="klif.html" class="block border border-red-900/40 bg-red-950/10 p-6 rounded hover:bg-red-950/30 transition-all group relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-3 text-xs text-red-500 font-bold tracking-widest group-hover:animate-pulse">STATUS: ONLINE</div>
-                <h3 class="text-red-400 font-bold mb-2 group-hover:text-red-300 text-lg">MODUŁ 01: Kalkulator Efektu Klifu (Ryczałt 2026)</h3>
-                <p class="text-sm text-neutral-400 mb-5">Interaktywne narzędzie diagnostyczne obnażające matematyczną wadę i nieproporcjonalne skoki składek zdrowotnych.</p>
-                <div class="text-xs text-red-400 border border-red-900/50 inline-block px-3 py-1.5 bg-red-950/50 tracking-widest">
-                    > URUCHOM_SKANOWANIE_PODATKOWE
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Państwo można <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">zaprojektować lepiej.</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+                Nie jesteśmy po lewej ani po prawej stronie. Odrzucamy plemienny chaos. Sprawdzamy przepisy, liczymy ich realny koszt w portfelu i wspólnie projektujemy zasady, które mają po prostu działać.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="klif.html" class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-emerald-500 text-neutral-950 font-bold hover:bg-emerald-400 transition-all text-center text-sm shadow-lg shadow-emerald-500/10">
+                    Sprawdź swój Efekt Klifu (2026) →
+                </a>
+                <a href="#konstytucja" class="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-neutral-800 bg-neutral-900/40 text-neutral-300 font-semibold hover:bg-neutral-800 hover:text-white transition-all text-center text-sm">
+                    Jak współtworzyć zasady?
+                </a>
+            </div>
+
+            <!-- Motto bar -->
+            <div class="pt-6 border-t border-neutral-900 flex flex-wrap justify-center gap-6 text-xs text-neutral-500 font-mono-code uppercase tracking-wider">
+                <span>01. Policz</span>
+                <span>•</span>
+                <span>02. Sprawdź</span>
+                <span>•</span>
+                <span>03. Podważ</span>
+                <span>•</span>
+                <span>04. Zaprojektuj</span>
+            </div>
+        </section>
+
+        <!-- 3 Pillars of SENS (Lejek) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Pillar 1 -->
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center font-bold text-sm">
+                        01
+                    </div>
+                    <h2 class="text-lg font-bold text-white">LICZYMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Kalkulatory realnych strat. Sprawdzasz na konkretnych liczbach, ile dany przepis wyciąga z Twojej kieszeni.
+                    </p>
                 </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium">
+                    Cel: Świadomość portfela
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">
+                        02
+                    </div>
+                    <h2 class="text-lg font-bold text-white">AUDYTUJEMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Laboratorium Państwa. Rozbieramy absurdy systemowe na czynniki pierwsze: dlaczego przepis powstał i dlaczego nie działa.
+                    </p>
+                </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium">
+                    Cel: Zrozumienie mechanizmu
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">
+                        03
+                    </div>
+                    <h2 class="text-lg font-bold text-white">PROJEKTUJEMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Konstytucja SENS. Nie narzucamy gotowych dogmatów. Publicznie, artykuł po artykule, głosujemy nad zdroworozsądkowymi regułami.
+                    </p>
+                </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium">
+                    Cel: Trwała naprawa państwa
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Tool Feature (Klif) -->
+        <section id="narzedzia" class="rounded-2xl border border-neutral-800 bg-gradient-to-b from-neutral-900/60 to-neutral-950 p-6 sm:p-8">
+            <div class="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between">
+                <div class="space-y-4 max-w-xl">
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+                        MODUŁ 01 // AUDYT PODATKOWY
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                        Kalkulator Efektu Klifu (Ryczałt 2026)
+                    </h3>
+                    <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                        Przekroczenie progu 60 000 zł o zaledwie <strong>1 zł</strong> kosztuje przedsiębiorcę ponad <strong>3 740 zł netto</strong> w rocznej składce zdrowotnej — nawet po odliczeniu przysługującej 50% ulgi. To nie jest sprawiedliwy podatek, to skokowa kara za wzrost przychodu.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-xs font-mono-code text-neutral-400 pt-1">
+                        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Zweryfikowane stawki 2026</span>
+                        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Uwzględnia ulgę 50%</span>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[240px]">
+                    <a href="klif.html" class="px-6 py-4 rounded-xl bg-white text-neutral-950 font-bold hover:bg-neutral-200 transition-all text-center text-sm shadow-xl flex items-center justify-center gap-2">
+                        <span>Uruchom kalkulator</span>
+                        <span>→</span>
+                    </a>
+                    <span class="text-center text-xs text-neutral-500">Czas weryfikacji: ~15 sekund</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratorium Państwa (Laboratorium) -->
+        <section id="laboratorium" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-neutral-800 pb-4">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white">Laboratorium Państwa</h2>
+                    <p class="text-sm text-neutral-400 mt-1">Ten sam test dla każdego pomysłu: Założenia → Liczby → Skutki uboczne.</p>
+                </div>
+                <span class="text-xs font-mono-code text-neutral-500 uppercase">Metodologia Otwartego Audytu</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Case 1 -->
+                <div class="p-5 rounded-xl border border-neutral-800/80 bg-neutral-900/20 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-red-400 font-semibold uppercase">Wada Konstrukcyjna</span>
+                        <span class="text-neutral-500 font-mono-code">Status: Zdiagnozowano</span>
+                    </div>
+                    <h4 class="font-bold text-white text-base">Progi ryczałtowe vs. Płynna skala składkowa</h4>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Dlaczego państwo zmusza przedsiębiorców do wstrzymywania wystawiania faktur pod koniec roku? Analiza alternatywy opartej o liniowy wzrost składki powyżej progu.
+                    </p>
+                    <div class="pt-2 text-xs font-medium text-emerald-400 hover:text-emerald-300 cursor-pointer inline-flex items-center gap-1">
+                        Czytaj pełną analizę wkrótce →
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="p-5 rounded-xl border border-neutral-800/80 bg-neutral-900/20 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-amber-400 font-semibold uppercase">Koszt Regulacji</span>
+                        <span class="text-neutral-500 font-mono-code">Status: W opracowaniu</span>
+                    </div>
+                    <h4 class="font-bold text-white text-base">Inflacja prawa: 20 000+ stron rocznie</h4>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Kto ponosi koszt niestabilności podatkowej? Zestawienie nakładów polskich MŚP na doradztwo prawne w porównaniu do standardów europejskich.
+                    </p>
+                    <div class="pt-2 text-xs font-medium text-emerald-400 hover:text-emerald-300 cursor-pointer inline-flex items-center gap-1">
+                        Czytaj pełną analizę wkrótce →
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konstytucja SENS: Publiczny Proces Projektowania -->
+        <section id="konstytucja" class="space-y-6">
+            <div class="border-b border-neutral-800 pb-4">
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-2">
+                    PROJEKT OTWARTY
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Konstytucja SENS: Zaprojektujmy ją wspólnie</h2>
+                <p class="text-sm sm:text-base text-neutral-400 mt-2 max-w-2xl">
+                    Nie publikujemy gotowej, 200-stronicowej księgi z narzuconymi odpowiedziami. Budujemy zasady państwa publicznie — reguła po regule, poddając każdy artykuł testowi logiki i głosowaniu obywateli.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Reguła 1 -->
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zasada 01 // Czystość Ról</div>
+                        <h4 class="text-base font-bold text-white">Rozdział pisania prawa od jego wykonywania</h4>
+                        <p class="text-sm text-neutral-400">Kto tworzy ustawy w parlamencie, nie może być członkiem rządu (ministrem). Koniec z sytuacją, w której władza kontroluje samą siebie.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 2</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Do debaty</span>
+                    </div>
+                </div>
+
+                <!-- Reguła 2 -->
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zasada 02 // Niezależność Sądów</div>
+                        <h4 class="text-base font-bold text-white">10-letnia kwarantanna polityczna</h4>
+                        <p class="text-sm text-neutral-400">Żaden czynny polityk ani poseł nie może objąć stanowiska sędziego w Sądzie Najwyższym lub Trybunale przez dekadę od złożenia mandatu.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 3</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Do debaty</span>
+                    </div>
+                </div>
+
+                <!-- Reguła 3 -->
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zasada 03 // Bezpiecznik Obywatelski</div>
+                        <h4 class="text-base font-bold text-white">Prawo weta wobec szkodliwych ustaw</h4>
+                        <p class="text-sm text-neutral-400">Wzorem szwajcarskim: zebranie określonej liczby podpisów obywateli obliguje do przeprowadzenia ogólnokrajowego referendum weta.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 2</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Do debaty</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Science / Transparentność -->
+        <section class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-white">Pełna jawność danych i wzorów</h3>
+                <p class="text-sm text-neutral-400 max-w-xl leading-relaxed">
+                    Każda liczba, formuła i założenie w kalkulatorach SENS posiada jawne źródło ustawowe. Nie musisz nam wierzyć na słowo – sprawdź kod i zweryfikuj matematykę samodzielnie.
+                </p>
+            </div>
+            <a href="https://github.com/SENS-SENSej/projekt-sens" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-semibold tracking-wide transition-all shrink-0">
+                Przejrzyj repozytorium GitHub ↗
             </a>
         </section>
 
-        <!-- Footer -->
-        <footer class="text-xs text-neutral-600 border-t border-neutral-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="tracking-widest">(c) 2026 PROJEKT S.E.N.S.</div>
-            <div class="tracking-widest">Wersja Architektury 1.0 | <span class="text-emerald-500/50">System Stabilny</span></div>
-        </footer>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-800/80 bg-[#0c0d0e] py-10 mt-16 text-xs text-neutral-500">
+        <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+                <span class="font-bold text-neutral-300">Projekt SENS</span>
+                <span>•</span>
+                <span>Niezależna inicjatywa analityczna i edukacyjna</span>
+            </div>
+            <div class="text-center sm:text-right space-y-1">
+                <div>(c) 2026 SENS. Narzędzia i dane udostępniane publicznie.</div>
+                <div class="text-[11px] text-neutral-600">Materiały mają charakter analityczny i nie stanowią doradztwa podatkowego ani prawnego.</div>
+            </div>
+        </div>
+    </footer>
+
 </body>
-</html>
+</html>"""
+
+with open('/mnt/data/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print("HTML generated successfully in /mnt/data/index.html")
