@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENS // Case #001: Efekt Klifu (Ryczałt 2026)</title>
-    <meta name="description" content="Audyt konstrukcji składki zdrowotnej na ryczałcie w 2026 r. Sprawdź wyliczenia roczne i weź udział w otwartej debacie.">
+    <title>SENS | Laboratorium Projektowania Państwa</title>
+    <meta name="description" content="Projekt SENS – Niezależna platforma audytu przepisów, kalkulatorów skutków podatkowych i otwartego projektowania zasad państwa. Metoda > plemię.">
+    <meta property="og:title" content="SENS | Sprawdzamy, co działa">
+    <meta property="og:description" content="Niezależny audyt przepisów i kalkulatory skutków finansowych. Policz. Sprawdź. Podważ. Zaprojektuj.">
+    <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,417 +21,247 @@
 
     <!-- Top Navigation Bar -->
     <header class="border-b border-neutral-800/80 bg-[#0c0d0e]/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-5 py-4 flex justify-between items-center">
-            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors">
-                ← Wróć do SENS
+        <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="w-3 h-3 bg-emerald-500 rounded-sm"></span>
+                <span class="text-xl font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">SENS.</span>
             </a>
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800 text-xs font-mono-code text-neutral-400">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                SENS CASE #001 // RYCZAŁT
-            </div>
+            <nav class="flex items-center gap-4 sm:gap-6 text-sm font-medium text-neutral-400">
+                <a href="#narzedzia" class="hover:text-white transition-colors">Narzędzia</a>
+                <a href="#laboratorium" class="hover:text-white transition-colors">Laboratorium</a>
+                <a href="#konstytucja" class="hover:text-white transition-colors">Konstytucja SENS</a>
+                <a href="klif.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-800 text-neutral-200 hover:bg-emerald-600 hover:text-white transition-all text-xs font-semibold">
+                    Analiza #001: Klif →
+                </a>
+            </nav>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-5 py-10 w-full space-y-16">
+    <main class="max-w-5xl mx-auto px-5 py-12 sm:py-16 w-full space-y-20">
 
-        <!-- Sekcja 1: Co się dzieje? -->
-        <section class="space-y-4">
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
-                SKANER USTAW // ANALIZA #001
+        <!-- Hero Section -->
+        <section class="text-center max-w-3xl mx-auto space-y-6 pt-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 text-xs font-medium text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Otwarty Audyt Systemowy & Edukacja Obywatelska
             </div>
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                Przekroczenie progu przychodu o 1 zł może podnieść roczną składkę zdrowotną o kilka tysięcy złotych.
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Państwo można <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">zaprojektować lepiej.</span>
             </h1>
-            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed">
-                W systemie ryczałtowym składka zdrowotna nie rośnie proporcjonalnie od każdej zarobionej złotówki. Przekroczenie progu przychodu zmienia podstawę wymiaru dla całego roku rozliczeniowego.
+
+            <p class="text-base sm:text-lg text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+                Sprawdzamy przepisy, liczymy ich skutki finansowe i poddajemy publicznej debacie reguły działania państwa. Ten sam test dla każdego pomysłu: założenia, liczby, skutki uboczne.
             </p>
-        </section>
 
-        <!-- Sekcja 2: Sprawdź swój koszt -->
-        <section class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 space-y-6">
-            <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                <span>01. Sprawdź swój koszt</span>
-            </h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                    <label class="block text-xs font-mono-code text-neutral-400 mb-2 uppercase">Roczny przychód (narastająco)</label>
-                    <input type="number" id="revenueInput" value="60001" min="0" step="1000" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-4 py-3 text-white font-mono-code focus:outline-none focus:border-emerald-500 transition-colors">
-                    <input type="range" id="revenueRange" min="0" max="400000" step="1000" value="60001" class="w-full mt-3 accent-emerald-500 bg-neutral-800 cursor-pointer">
-                </div>
-                <div>
-                    <label class="block text-xs font-mono-code text-neutral-400 mb-2 uppercase">Stawka ryczałtu</label>
-                    <select id="taxRateSelect" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg px-4 py-3 text-white font-mono-code focus:outline-none focus:border-emerald-500 transition-colors">
-                        <option value="0.17">17%</option>
-                        <option value="0.15">15%</option>
-                        <option value="0.14">14%</option>
-                        <option value="0.12" selected>12% (domyślna)</option>
-                        <option value="0.10">10%</option>
-                        <option value="0.085">8,5%</option>
-                        <option value="0.055">5,5%</option>
-                        <option value="0.03">3%</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Wynik dynamiczny -->
-            <div id="resultBox" class="p-5 rounded-xl border border-neutral-800 bg-neutral-950 space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono-code">
-                    <div>
-                        <span class="text-neutral-500 block">Przychód: <span id="userRevenueDisplay" class="text-neutral-300">60 001,00 zł</span></span>
-                        <span class="text-neutral-500 block mt-1">Próg: <span id="thresholdLabel" class="text-white font-semibold">II</span></span>
-                    </div>
-                    <div>
-                        <span class="text-neutral-500 block">Roczna składka według tego progu:</span>
-                        <span id="annualCostLabel" class="text-white font-semibold text-sm">9 966,96 zł</span>
-                    </div>
-                </div>
-
-                <div class="pt-3 border-t border-neutral-800/80 space-y-3 font-mono-code text-xs">
-                    <div class="flex flex-col sm:flex-row justify-between gap-1">
-                        <span class="text-neutral-400">Dla porównania — przy przychodzie nieprzekraczającym poprzedniego progu:</span>
-                        <span id="prevTierCostLabel" class="text-neutral-200 font-semibold">5 980,20 zł</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row justify-between gap-1">
-                        <span class="text-neutral-400">Różnica:</span>
-                        <span id="jumpBruttoLabel" class="text-red-400 font-bold">+3 986,76 zł (brutto)</span>
-                    </div>
-                    <div class="p-3 rounded-lg bg-neutral-900/60 border border-neutral-800/80 space-y-2 text-neutral-400">
-                        <p class="leading-relaxed">
-                            * Odliczenie: 50% zapłaconej rocznej składki pomniejsza podstawę opodatkowania (przychód) przy Twojej stawce ryczałtu. Ulga na tej różnicy: <span id="taxReliefLabel" class="text-neutral-200 font-semibold">239,21 zł</span>
-                        </p>
-                        <div class="flex justify-between items-center text-sm pt-1 border-t border-neutral-800 text-neutral-200">
-                            <span>Realny koszt roczny po uldze:</span>
-                            <span id="jumpNettoLabel" class="text-red-400 font-bold">+3 747,55 zł</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="statusAlert" class="text-xs text-neutral-400 leading-relaxed border-l-2 border-red-500 pl-3 py-1">
-                    🔴 Jesteś w strefie granicznej progu 60 000 zł. Zobacz dokładnie, co to oznacza dla Twojego rozliczenia rocznego, powyżej.
-                </div>
-            </div>
-        </section>
-
-        <!-- Sekcja 3: Dlaczego tak jest? -->
-        <section class="space-y-6">
-            <h2 class="text-xl font-bold text-white border-b border-neutral-800 pb-3">
-                02. Dlaczego tak jest?
-            </h2>
-
-            <div class="space-y-4 text-sm leading-relaxed text-neutral-300">
-                <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/20 space-y-2">
-                    <div class="text-xs font-mono-code text-neutral-400 uppercase font-semibold">[ FAKTY SYSTEMOWE ]</div>
-                    <ul class="space-y-2 list-disc list-inside text-neutral-300">
-                        <li><strong class="text-white">Podstawa prawna:</strong> art. 81 ust. 2e oraz ust. 2f ustawy o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych określają trzy progi przychodu (do 60 000 zł / 60 000–300 000 zł / powyżej 300 000 zł) i odpowiadające im podstawy wymiaru (60% / 100% / 180% przeciętnego wynagrodzenia).</li>
-                        <li><strong class="text-white">Mechanizm rozliczenia rocznego:</strong> jeśli suma miesięcznych składek zapłaconych w trakcie roku jest niższa niż składka wyliczona od ostatecznej rocznej podstawy (bo przychód przekroczył próg), przedsiębiorca dopłaca różnicę przy rozliczeniu rocznym. Jeśli zapłacił więcej — należy mu się zwrot.</li>
-                    </ul>
-                </div>
-
-                <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/20 space-y-2">
-                    <div class="text-xs font-mono-code text-neutral-400 uppercase font-semibold">[ CO WIEMY (FAKT) ]</div>
-                    <p class="text-neutral-300">
-                        Przedsiębiorca może wybrać opłacanie stałej składki miesięcznej w oparciu o przychód z poprzedniego roku (tzw. metoda uproszczona, art. 81 ust. 2h), co pozwala zachować stałą kwotę raty w trakcie roku.
-                    </p>
-                </div>
-
-                <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/20 space-y-2">
-                    <div class="text-xs font-mono-code text-amber-400 uppercase font-semibold">[ CZEGO NIE WIEMY (LUKA ŹRÓDŁOWA) ]</div>
-                    <p class="text-neutral-300">
-                        W dostępnej dokumentacji legislacyjnej nie znaleźliśmy analizy wyjaśniającej, dlaczego wybrano sztywne progi kwotowe generujące skok obciążenia, zamiast mechanizmu ciągłego. Nie przypisujemy więc tej motywacji projektodawcy.
-                    </p>
-                </div>
-
-                <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/20 space-y-2">
-                    <div class="text-xs font-mono-code text-red-400 uppercase font-semibold">[ ARGUMENT PRZECIW (RYNEK/EKSPERCI) ]</div>
-                    <p class="text-neutral-300">
-                        Sztywne progi tworzą tzw. efekt klifu — skok obciążenia jest nieproporcjonalny do wygenerowanego przychodu. <span class="text-neutral-500 text-xs">(Źródło: analizy branżowe, m.in. vatax.pl.)</span>
-                    </p>
-                </div>
-
-                <div class="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/10 space-y-2">
-                    <div class="text-xs font-mono-code text-emerald-400 uppercase font-semibold">[ PYTANIE DO CIEBIE ]</div>
-                    <p class="text-white font-medium">
-                        Czy istnienie uproszczonej metody rozliczenia wystarczająco łagodzi problem efektu klifu — czy to za mało, skoro i tak trzeba w końcu rozliczyć się od realnego przychodu za cały rok?
-                    </p>
-                </div>
-            </div>
-
-            <!-- Rozwijana Metodologia -->
-            <details class="text-xs font-mono-code text-neutral-500 border border-neutral-800/80 rounded-lg p-4 bg-neutral-950 cursor-pointer">
-                <summary class="hover:text-neutral-300 transition-colors">ℹ️ Pokaż, jak to sprawdziliśmy</summary>
-                <div class="pt-4 space-y-3 text-neutral-400 leading-relaxed">
-                    <div><strong>Źródła pierwotne & wskaźniki:</strong> Przeciętne wynagrodzenie w sektorze przedsiębiorstw IV kw. 2025 r. = 9 228,64 zł (GUS, komunikat 22.01.2026).</div>
-                    <div><strong>Podstawy wymiaru:</strong> 60% = 5 537,18 zł (składka 498,35 zł) | 100% = 9 228,64 zł (składka 830,58 zł) | 180% = 16 611,55 zł (składka 1 495,04 zł).</div>
-                    <div><strong>Ulga 50%:</strong> Art. 11 ust. 1a ustawy o zryczałtowanym podatku dochodowym.</div>
-                    <div><strong>Wpis RT-001 (red_team_log):</strong> Wersja robocza przypisywała mechanizm rozliczenia rocznego do art. 81 ust. 2i. Po weryfikacji ustalono, że 2i dotyczy zwrotu (nadpłaty), a 2j dopłaty — właściwym kierunkiem dla Efektu Klifu byłoby 2j. Jednak wobec nowelizacji z 2025 r. wprowadzającej równoległe podustępy (2hd–2hl) z odrębną numeracją, zdecydowano nie podawać konkretnego numeru ustępu w treści publicznej — opisano mechanizm słownie. Zasada zastosowana: precyzja tylko wtedy, gdy jest pewna.</div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Sekcja 4: Co można zrobić inaczej? -->
-        <section class="space-y-6">
-            <h2 class="text-xl font-bold text-white border-b border-neutral-800 pb-3">
-                03. Co można zrobić inaczej?
-            </h2>
-
-            <div class="space-y-3" id="votingOptions">
-                <!-- Warianty renderowane w kolejności losowej przez skrypt JS -->
-            </div>
-
-            <button id="voteBtn" class="px-6 py-3 rounded-lg bg-white text-neutral-950 font-bold hover:bg-neutral-200 transition-all text-xs uppercase tracking-wider">
-                Zagłosuj
-            </button>
-
-            <!-- Wyniki Głosowania -->
-            <div id="voteResults" class="hidden p-5 rounded-xl border border-neutral-800 bg-neutral-950 space-y-4 font-mono-code text-xs">
-                <div class="flex justify-between text-neutral-400 border-b border-neutral-800 pb-2">
-                    <span>Głosy użytkowników SENS (próba niereprezentatywna, n = 1 284)</span>
-                </div>
-                <div class="space-y-3">
-                    <div>
-                        <div class="flex justify-between text-neutral-300 mb-1">
-                            <span>A — Składka płynna proporcjonalna</span>
-                            <span>61%</span>
-                        </div>
-                        <div class="w-full bg-neutral-800 h-2 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full" style="width: 61%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-neutral-300 mb-1">
-                            <span>B — Strefa buforowa wokół progów</span>
-                            <span>28%</span>
-                        </div>
-                        <div class="w-full bg-neutral-800 h-2 rounded-full overflow-hidden">
-                            <div class="bg-neutral-400 h-full" style="width: 28%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-neutral-300 mb-1">
-                            <span>C — Zachowanie progów z wymogiem powiadomień</span>
-                            <span>11%</span>
-                        </div>
-                        <div class="w-full bg-neutral-800 h-2 rounded-full overflow-hidden">
-                            <div class="bg-neutral-600 h-full" style="width: 11%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interakcja zwrotna -->
-            <div class="pt-4 border-t border-neutral-900 space-y-4">
-                <div class="flex flex-wrap gap-3">
-                    <button id="disagreeBtn" class="px-4 py-2 rounded-lg border border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800 text-neutral-300 text-xs font-medium transition-colors">
-                        Nie przekonałeś mnie
-                    </button>
-                    <button id="proposeBtn" class="px-4 py-2 rounded-lg border border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800 text-neutral-300 text-xs font-medium transition-colors">
-                        Zaproponuj własny wariant rozwiązania
-                    </button>
-                </div>
-
-                <!-- Formularz Nie przekonałeś mnie -->
-                <div id="disagreeForm" class="hidden p-4 rounded-xl border border-neutral-800 bg-neutral-950 space-y-3 text-xs">
-                    <span class="text-neutral-300 font-semibold block">Wskaż powód:</span>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-neutral-400 font-mono-code">
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="brakujace_dane"> brakujące dane</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="zly_argument"> zły argument</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="niezgoda"> niezgoda z założeniem</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="zrodlo"> niewiarygodne źródło</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="kontrargument"> mam kontrargument</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="disagreeReason" value="inny"> inny powód</label>
-                    </div>
-                    <button onclick="submitFeedback('disagreeForm')" class="mt-2 px-4 py-1.5 rounded bg-neutral-800 text-neutral-200 hover:bg-neutral-700">Wyślij zgłoszenie</button>
-                </div>
-
-                <!-- Formularz Propozycja -->
-                <div id="proposeForm" class="hidden p-4 rounded-xl border border-neutral-800 bg-neutral-950 space-y-3 text-xs">
-                    <span class="text-neutral-300 font-semibold block">Twoja propozycja (trafia do Laboratorium Państwa):</span>
-                    <textarea class="w-full bg-neutral-900 border border-neutral-800 rounded p-3 text-neutral-200 focus:outline-none focus:border-neutral-600" rows="3" placeholder="Opisz wariant..."></textarea>
-                    <button onclick="submitFeedback('proposeForm')" class="px-4 py-1.5 rounded bg-neutral-800 text-neutral-200 hover:bg-neutral-700">Prześlij propozycję</button>
-                </div>
-
-                <div class="text-xs text-neutral-500">
-                    Zgłoszenia audytujemy w każdy poniedziałek. Merytoryczne poprawki trafiają do publicznego rejestru zmian.
-                </div>
-            </div>
-        </section>
-
-        <!-- Sekcja 5: Hipoteza ustrojowa -->
-        <section class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-gradient-to-b from-neutral-900/30 to-neutral-950 space-y-4">
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-neutral-800 text-neutral-300 text-xs font-mono-code">
-                HIPOTEZA USTROJOWA // STATUS: DO DALSZEJ DEBATY // POWIĄZANIE: CASE #001
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white">
-                HIPOTEZA: Ciągłość Obciążeń Publicznych
-            </h3>
-            <p class="text-sm text-neutral-400 leading-relaxed">
-                Czy w prawie podatkowym i składkowym powinien istnieć bezpiecznik uniemożliwiający gwałtowny wzrost obciążenia wskutek minimalnego przekroczenia progu?
-            </p>
-            <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-950 text-xs text-neutral-300 font-mono-code leading-relaxed">
-                „Żadna danina publiczna ani składka nie powinna powodować skokowego wzrostu obciążenia w wyniku nominalnego wzrostu przychodu lub dochodu brutto.”
-            </div>
-            <div class="pt-2">
-                <a href="index.html#konstytucja" class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
-                    Wejdź do dyskusji nad tą zasadą →
+            <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="klif.html" class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-emerald-500 text-neutral-950 font-bold hover:bg-emerald-400 transition-all text-center text-sm shadow-lg shadow-emerald-500/10">
+                    Sprawdź swój wynik w Analizie #001 →
+                </a>
+                <a href="#konstytucja" class="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-neutral-800 bg-neutral-900/40 text-neutral-300 font-semibold hover:bg-neutral-800 hover:text-white transition-all text-center text-sm">
+                    Zobacz proces Konstytucji SENS
                 </a>
             </div>
+
+            <!-- Metodologia 4 kroków -->
+            <div class="pt-6 border-t border-neutral-900 flex flex-wrap justify-center gap-6 text-xs text-neutral-500 font-mono-code uppercase tracking-wider">
+                <span>01. Policz</span>
+                <span>•</span>
+                <span>02. Sprawdź</span>
+                <span>•</span>
+                <span>03. Podważ</span>
+                <span>•</span>
+                <span>04. Zaprojektuj</span>
+            </div>
+        </section>
+
+        <!-- 3 Filary SENS -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center font-bold text-sm">01</div>
+                    <h2 class="text-lg font-bold text-white">LICZYMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Skaner Ustaw i kalkulatory kosztów. Sprawdzasz na precyzyjnych danych, jak konkretny mechanizm prawny wpływa na Twój budżet.
+                    </p>
+                </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium font-mono-code">Obszar: Portfel & Koszt</div>
+            </div>
+
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">02</div>
+                    <h2 class="text-lg font-bold text-white">AUDYTUJEMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Laboratorium Państwa. Weryfikujemy mechanizmy: jaki problem miała rozwiązać ustawa, jakie przyniosła skutki i gdzie powstały luki.
+                    </p>
+                </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium font-mono-code">Obszar: Analiza & System</div>
+            </div>
+
+            <div class="p-6 rounded-xl border border-neutral-800/80 bg-neutral-900/30 hover:border-neutral-700 transition-all flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">03</div>
+                    <h2 class="text-lg font-bold text-white">PROJEKTUJEMY</h2>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Konstytucja SENS. Otwarty proces wypracowywania zasad ustrojowych. Publiczna debata nad wariantami, argumentami i głosowaniem.
+                    </p>
+                </div>
+                <div class="pt-5 text-xs text-neutral-500 font-medium font-mono-code">Obszar: Nowe Standardy</div>
+            </div>
+        </section>
+
+        <!-- Aktywny Moduł: Klif -->
+        <section id="narzedzia" class="rounded-2xl border border-neutral-800 bg-gradient-to-b from-neutral-900/60 to-neutral-950 p-6 sm:p-8">
+            <div class="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between">
+                <div class="space-y-4 max-w-xl">
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+                        SKANER USTAW // ANALIZA #001
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                        Efekt Klifu: Składka Zdrowotna na Ryczałcie (2026)
+                    </h3>
+                    <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                        Przekroczenie progu 60 000 zł o zaledwie <strong>1 zł</strong> generuje skokowy wzrost rocznej składki zdrowotnej. Realna różnica obciążenia netto (po uwzględnieniu 50% odliczenia) wynosi <strong>od 3 649 zł do 3 928 zł rocznie</strong> — w zależności od stawki ryczałtu Twojej branży.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-xs font-mono-code text-neutral-400 pt-1">
+                        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Zweryfikowane wskaźniki 2026</span>
+                        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pełna matryca stawek (3%–17%)</span>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[240px]">
+                    <a href="klif.html" class="px-6 py-4 rounded-xl bg-white text-neutral-950 font-bold hover:bg-neutral-200 transition-all text-center text-sm shadow-xl flex items-center justify-center gap-2">
+                        <span>Uruchom analizę</span>
+                        <span>→</span>
+                    </a>
+                    <span class="text-center text-xs text-neutral-500">Czas weryfikacji: ~15 sekund</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratorium Państwa -->
+        <section id="laboratorium" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-neutral-800 pb-4">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white">Laboratorium Państwa</h2>
+                    <p class="text-sm text-neutral-400 mt-1">Struktura analizy: Teza → Dane → Kontrargumenty → Skutki.</p>
+                </div>
+                <span class="text-xs font-mono-code text-neutral-500 uppercase">Status: W opracowaniu</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-5 rounded-xl border border-neutral-800/80 bg-neutral-900/20 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-red-400 font-semibold uppercase">Analiza Systemowa</span>
+                        <span class="text-neutral-500 font-mono-code">Wersja 0.1</span>
+                    </div>
+                    <h4 class="font-bold text-white text-base">Konstrukcja progowa vs. Skala płynna w składkach</h4>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Analiza bodźców ekonomicznych: dlaczego sztywne progi wywołują skoki obciążeń i jak zastąpić je formułą ciągłą.
+                    </p>
+                    <div class="pt-2 text-xs font-medium text-emerald-400 flex items-center gap-1">
+                        Karta problemu w przygotowaniu →
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-xl border border-neutral-800/80 bg-neutral-900/20 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-amber-400 font-semibold uppercase">Analiza Kosztów</span>
+                        <span class="text-neutral-500 font-mono-code">Wersja 0.1</span>
+                    </div>
+                    <h4 class="font-bold text-white text-base">Zmienność regulacyjna a koszty obsługi prawnej</h4>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Wpływ częstotliwości nowelizacji podatkowych na czas i nakłady finansowe mikro- i małych przedsiębiorstw w Polsce.
+                    </p>
+                    <div class="pt-2 text-xs font-medium text-emerald-400 flex items-center gap-1">
+                        Karta problemu w przygotowaniu →
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konstytucja SENS: Publiczny Proces Projektowania -->
+        <section id="konstytucja" class="space-y-6">
+            <div class="border-b border-neutral-800 pb-4">
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-2">
+                    PROCES OTWARTY
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Konstytucja SENS: Projektowanie Zasad</h2>
+                <p class="text-sm sm:text-base text-neutral-400 mt-2 max-w-2xl">
+                    Konstytucja jako uporządkowany proces deliberacji. Przedstawiamy problem ustrojowy, analizujemy warianty rozwiązań i poddajemy je otwartej weryfikacji.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zagadnienie 01 // Relacja Władz</div>
+                        <h4 class="text-base font-bold text-white">Czy parlamentarzysta powinien móc pełnić funkcję ministra?</h4>
+                        <p class="text-sm text-neutral-400">Analiza rozdziału roli prawodawczej od wykonawczej oraz mechanizmów kontroli wzajemnej organów państwa.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 2</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Otwarta debata</span>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zagadnienie 02 // Sądownictwo</div>
+                        <h4 class="text-base font-bold text-white">Jaki okres kwarantanny politycznej powinien obowiązywać sędziów sądów najwyższych instancji?</h4>
+                        <p class="text-sm text-neutral-400">Ocena propozycji wprowadzenia czasowego zakazu powoływania byłych parlamentarzystów na stanowiska sędziowskie.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 3</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Otwarta debata</span>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Zagadnienie 03 // Narzędzia Obywatelskie</div>
+                        <h4 class="text-base font-bold text-white">Na jakich zasadach obywatele powinni móc wetować uchwalone ustawy?</h4>
+                        <p class="text-sm text-neutral-400">Przegląd mechanizmów referendum fakultatywnego (weta obywatelskiego) na przykładzie rozwiązań szwajcarskich.</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="px-3 py-1.5 rounded bg-neutral-800 text-xs font-medium text-neutral-300">Warianty: 2</span>
+                        <span class="px-3 py-1.5 rounded bg-emerald-950/60 border border-emerald-800/40 text-xs font-semibold text-emerald-400">Otwarta debata</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transparentność -->
+        <section class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-white">Pełna jawność danych i kodu</h3>
+                <p class="text-sm text-neutral-400 max-w-xl leading-relaxed">
+                    Każda formuła, wskaźnik i założenie analityczne posiada podane źródło. Kod narzędzi jest publicznie dostępny do weryfikacji.
+                </p>
+            </div>
+            <a href="https://github.com/SENS-SENSej/projekt-sens" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-semibold tracking-wide transition-all shrink-0">
+                Przejrzyj repozytorium GitHub ↗
+            </a>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-neutral-800/80 bg-[#0c0d0e] py-10 text-xs text-neutral-500">
-        <div class="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row justify-between items-center gap-6">
+    <footer class="border-t border-neutral-800/80 bg-[#0c0d0e] py-10 mt-16 text-xs text-neutral-500">
+        <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
                 <span class="font-bold text-neutral-300">Projekt SENS</span>
                 <span>•</span>
-                <span>Case #001</span>
+                <span>Obywatelska inicjatywa analityczno-badawcza</span>
             </div>
             <div class="text-center sm:text-right space-y-1">
-                <div>(c) 2026 SENS. Materiał analityczno-edukacyjny.</div>
-                <div class="text-[11px] text-neutral-600">Narzędzie ma charakter edukacyjny i poglądowy — nie stanowi porady podatkowej ani prawnej. Nie uwzględnia innych ulg, składek społecznych ani indywidualnej sytuacji podatnika.</div>
+                <div>(c) 2026 SENS. Materiały udostępniane publicznie.</div>
+                <div class="text-[11px] text-neutral-600">Treści mają charakter informacyjno-edukacyjny i nie stanowią doradztwa prawnego ani podatkowego.</div>
             </div>
         </div>
     </footer>
 
-    <!-- Logika i Silnik Danych -->
-    <script>
-        const TIERS = [
-            { prog: "I", przychod_do: 60000, podstawa_pct: 0.60, skladka_mies: 498.35, skladka_rocz: 5980.20 },
-            { prog: "II", przychod_od: 60000.01, przychod_do: 300000, podstawa_pct: 1.00, skladka_mies: 830.58, skladka_rocz: 9966.96 },
-            { prog: "III", przychod_od: 300000.01, podstawa_pct: 1.80, skladka_mies: 1495.04, skladka_rocz: 17940.48 }
-        ];
-
-        const VARIANTS = [
-            { id: "A", title: "A: Składka płynna proporcjonalna", desc: "wyższa stawka tylko od nadwyżki ponad próg." },
-            { id: "B", title: "B: Strefa buforowa wokół progów", desc: "łagodne przejście ±2000 zł." },
-            { id: "C", title: "C: Zachowanie progów z wymogiem powiadomień", desc: "automatyczne powiadomienia ostrzegawcze (CEIDG/ZUS)." }
-        ];
-
-        const revenueInput = document.getElementById('revenueInput');
-        const revenueRange = document.getElementById('revenueRange');
-        const taxRateSelect = document.getElementById('taxRateSelect');
-        const userRevenueDisplay = document.getElementById('userRevenueDisplay');
-        const thresholdLabel = document.getElementById('thresholdLabel');
-        const annualCostLabel = document.getElementById('annualCostLabel');
-        const prevTierCostLabel = document.getElementById('prevTierCostLabel');
-        const jumpBruttoLabel = document.getElementById('jumpBruttoLabel');
-        const taxReliefLabel = document.getElementById('taxReliefLabel');
-        const jumpNettoLabel = document.getElementById('jumpNettoLabel');
-        const statusAlert = document.getElementById('statusAlert');
-        const voteBtn = document.getElementById('voteBtn');
-        const voteResults = document.getElementById('voteResults');
-        const votingOptions = document.getElementById('votingOptions');
-        const disagreeBtn = document.getElementById('disagreeBtn');
-        const proposeBtn = document.getElementById('proposeBtn');
-        const disagreeForm = document.getElementById('disagreeForm');
-        const proposeForm = document.getElementById('proposeForm');
-
-        function formatPLN(val) {
-            return val.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' zł';
-        }
-
-        function calculate() {
-            const revenue = parseFloat(revenueInput.value) || 0;
-            const taxRate = parseFloat(taxRateSelect.value);
-
-            let tierIndex = 0;
-            if (revenue > TIERS[1].przychod_do) {
-                tierIndex = 2;
-            } else if (revenue > TIERS[0].przychod_do) {
-                tierIndex = 1;
-            }
-
-            const currentTier = TIERS[tierIndex];
-            userRevenueDisplay.textContent = formatPLN(revenue);
-            thresholdLabel.textContent = currentTier.prog;
-            annualCostLabel.textContent = formatPLN(currentTier.skladka_rocz);
-
-            if (tierIndex === 0) {
-                prevTierCostLabel.textContent = "— (próg podstawowy)";
-                jumpBruttoLabel.textContent = "0,00 zł";
-                taxReliefLabel.textContent = "0,00 zł";
-                jumpNettoLabel.textContent = "0,00 zł";
-                statusAlert.classList.add('hidden');
-            } else {
-                const prevTier = TIERS[tierIndex - 1];
-                const jumpBrutto = currentTier.skladka_rocz - prevTier.skladka_rocz;
-                const taxRelief = 0.5 * jumpBrutto * taxRate;
-                const jumpNetto = jumpBrutto - taxRelief;
-
-                prevTierCostLabel.textContent = formatPLN(prevTier.skladka_rocz);
-                jumpBruttoLabel.textContent = "+" + formatPLN(jumpBrutto) + " (brutto)";
-                taxReliefLabel.textContent = formatPLN(taxRelief);
-                jumpNettoLabel.textContent = "+" + formatPLN(jumpNetto);
-
-                const thresholdBoundary = tierIndex === 1 ? 60000 : 300000;
-                const dist = Math.abs(revenue - thresholdBoundary);
-                
-                if (dist <= 5000) {
-                    statusAlert.classList.remove('hidden');
-                    statusAlert.innerHTML = `🔴 Jesteś w strefie granicznej progu ${formatPLN(thresholdBoundary)}. Zobacz dokładnie, co to oznacza dla Twojego rozliczenia rocznego, powyżej.`;
-                } else {
-                    statusAlert.classList.add('hidden');
-                }
-            }
-        }
-
-        // Renderowanie wariantów w losowej kolejności
-        function renderVotingVariants() {
-            const shuffled = [...VARIANTS].sort(() => Math.random() - 0.5);
-            votingOptions.innerHTML = shuffled.map(v => `
-                <label class="block p-4 rounded-xl border border-neutral-800 bg-neutral-900/30 hover:border-neutral-700 transition-all cursor-pointer">
-                    <div class="flex items-start gap-3">
-                        <input type="radio" name="variant" value="${v.id}" class="mt-1 text-emerald-500 focus:ring-0">
-                        <div>
-                            <span class="text-sm font-bold text-white block">${v.title}</span>
-                            <span class="text-xs text-neutral-400 leading-relaxed">${v.desc}</span>
-                        </div>
-                    </div>
-                </label>
-            `).join('');
-        }
-
-        function submitFeedback(formId) {
-            document.getElementById(formId).classList.add('hidden');
-            alert('Dziękujemy. Zgłoszenie zostało zarejestrowane do cotygodniowego przeglądu.');
-        }
-
-        revenueInput.addEventListener('input', () => {
-            revenueRange.value = revenueInput.value;
-            calculate();
-        });
-
-        revenueRange.addEventListener('input', () => {
-            revenueInput.value = revenueRange.value;
-            calculate();
-        });
-
-        taxRateSelect.addEventListener('change', calculate);
-
-        voteBtn.addEventListener('click', () => {
-            const selected = document.querySelector('input[name="variant"]:checked');
-            if (!selected) {
-                alert('Wybierz jeden z wariantów przed oddaniem głosu.');
-                return;
-            }
-            voteResults.classList.remove('hidden');
-            voteBtn.classList.add('hidden');
-        });
-
-        disagreeBtn.addEventListener('click', () => {
-            disagreeForm.classList.toggle('hidden');
-            proposeForm.classList.add('hidden');
-        });
-
-        proposeBtn.addEventListener('click', () => {
-            proposeForm.classList.toggle('hidden');
-            disagreeForm.classList.add('hidden');
-        });
-
-        renderVotingVariants();
-        calculate();
-    </script>
 </body>
 </html>
