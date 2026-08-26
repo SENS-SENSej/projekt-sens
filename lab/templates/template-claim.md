@@ -1,50 +1,56 @@
 # CLAIM-[NUMER]
 
-## 1. Metadane
-* **Autor wypowiedzi:** [Imię i Nazwisko / Funkcja / Partia]
-* **Data:** [RRRR-MM-DD]
-* **Format:** [Wpis na X / Wywiad prasowy / Konferencja / Wystąpienie w Sejmie]
-* **Bezpośredni link do wypowiedzi:** [URL]
-* **Status weryfikacji:** [INBOX | RESEARCH | RED_TEAM | VERIFIED | UNRESOLVED | REJECTED]
+## 1. Twierdzenie Wyjściowe
+* **Treść twierdzenia:** "[Dokładny cytat lub badana teza]"
+* **Autor / Źródło twierdzenia:** [Osoba / Instytucja / Analiza własna]
+* **Data wypowiedzi:** [RRRR-MM-DD]
+* **Bezpośredni link:** [URL]
 
 ---
 
-## 2. Cytat dosłowny
-> "[Dokładny cytat słowo w słowo bez skrótów zmieniających sens]"
+## 2. Dekompozycja na Atomy Dowodowe
+
+### ATOM-A: [Tytuł atomu, np. Wartości progów]
+* **Treść twierdzenia atomowego:** ...
+* **Powiązane źródło:** SOURCE-[NUMER]
+* **Dowód w źródle:** [Wskazanie cytatu / tabeli]
+* **Status atomu:** 🟢 VERIFIED
+
+### ATOM-B: [Tytuł atomu, np. Rozliczenie roczne]
+* **Treść twierdzenia atomowego:** ...
+* **Powiązane źródło:** SOURCE-[NUMER]
+* **Dowód w źródle:** ...
+* **Status atomu:** 🟢 VERIFIED
 
 ---
 
-## 3. Dekompozycja twierdzenia (Na jakie tezy rozbijamy wypowiedź?)
-1. **Teza A:** [Konkretna liczba / skutek / założenie]
-2. **Teza B:** [Konkretna grupa docelowa / warunek prawny]
+## 3. Pytania Otwarte (Open Questions)
+* **OQ-[NUMER]:** [Kwestia kluczowa dla pełnego obrazu, na którą brak twardych dowodów]
+  * Status: 🟡 UNPROVEN / BADANE W OQ-[NUMER]
 
 ---
 
-## 4. Sprawdzenie w źródłach pierwotnych
-* **Źródło pierwotne 1:** [Link do SOURCE-XXXX / Dziennik Ustaw / GUS / ZUS]
-* **Kluczowy fragment / Liczba:** [Dokładny cytat ze źródła i wyliczenie]
+## 4. Matryca Obliczeniowa (Jeśli dotyczy liczb)
+* **Wartości bazowe:** ...
+* **Kroki przeliczeniowe:** ...
+* **Wynik ostateczny:** ...
 
 ---
 
-## 5. Rozbicie SENS (Matryca prawdy)
-* **CO WIEMY (Fakty potwierdzone):**
-  * ...
-* **CZEGO NIE WIEMY (Luki w danych / brakujące wskaźniki):**
-  * ...
-* **KONTRARGUMENT / DRUGA STRONA:**
-  * ...
+## 5. Rejestr Ryzyk i Ograniczeń (Red Team)
+* **Co jest w 100% pewne (udowodnione atomami):** ...
+* **Gdzie leży granica naszej wiedzy:** ...
+* **Czego NIE WOLNO twierdzić publicznie na bazie tego CLAIM-u:** ...
 
 ---
 
-## 6. SENS CHECK (Ocena końcowa)
-* [ ] 🟢 **ZGODNE Z DANYMI**
-* [ ] 🟡 **WYMAGA KONTEKSTU**
-* [ ] 🟠 **CZĘŚCIOWO PRAWDZIWE**
-* [ ] 🔴 **NIEZGODNE Z DANYMI**
-* [ ] ⚪ **NIE DA SIĘ ROZSTRZYGNĄĆ (Brak danych)**
+## 6. VERDICT KOŃCOWY
+* **Status ogólny:** 🟡 VERIFIED CORE / 🟢 FULLY VERIFIED / 🔴 REJECTED / ⚪ UNRESOLVED
+* **Zakres potwierdzony:** [ATOM-A, ATOM-B]
+* **Zakres niepotwierdzony / otwarty:** [OQ-0001]
 
 ---
 
-## 7. Format publikacyjny (Gotowy post Senseja)
-> **Dobra. Sprawdźmy.**
-> [Krótki, 3-zdaniowy tekst na X/FB ze wskazaniem liczb i źródeł]
+## 7. Materiał Wyjściowy dla Senseja (Editorial)
+*(Reguła: post nie jest dowodem w LAB. Post może czerpać WYŁĄCZNIE z powyższych zweryfikowanych atomów).*
+> [Gotowy tekst na X / FB]
