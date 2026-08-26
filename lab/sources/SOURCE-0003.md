@@ -24,11 +24,11 @@
 ## 3. Zakres Dowodowy
 
 ### CZEGO DOWODZI TO ŹRÓDŁO
-* **ATOM-0001-E:** Przedsiębiorca na ryczałcie ma prawo pomniejszyć przychód do opodatkowania o dokładnie 50% zapłaconych składek zdrowotnych, co obniża należny podatek ryczałtowy proporcjonalnie do jego stawki (np. 12%).
+* **ATOM-0001-E:** Przychód podlegający opodatkowaniu ryczałtem może zostać pomniejszony o 50% zapłaconych w danym roku podatkowym składek na ubezpieczenie zdrowotne.
 
-### CZEGO NIE DOWODZI TO ŹRÓDŁO
-* Zmniejszenia przelewu składki do ZUS (składka ZUS płacona jest w 100%, a 50% odlicza się od przychodu w urzędzie skarbowym).
-* Prawa do odliczenia składki od samego podatku (tzw. mechanizm sprzed 2022 r. nie obowiązuje).
+### CZEGO NIE DOWODZI TO ŹRÓDŁO (Zakaz Nadinterpretacji)
+* Nie dowodzi bezpośredniej kwoty ulgi w portfelu (ta zależy od stawki ryczałtu podatnika i stanowi element obliczeniowy w CLAIM).
+* Nie dowodzi obniżenia samej składki wpłacanej do ZUS.
 
 ---
 
