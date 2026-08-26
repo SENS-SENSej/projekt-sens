@@ -10,17 +10,21 @@
 
 ## 2. Dekompozycja na Atomy Dowodowe
 
-### ATOM-A: [Tytuł atomu, np. Wartości progów]
+### ATOM-A: [Tytuł atomu]
 * **Treść twierdzenia atomowego:** ...
 * **Powiązane źródło:** SOURCE-[NUMER]
 * **Dowód w źródle:** [Wskazanie cytatu / tabeli]
 * **Status atomu:** 🟢 VERIFIED
+* **Data weryfikacji atomu:** [RRRR-MM-DD]
+* **Weryfikator:** [SENS Red Team / Audyt zewnętrzny]
 
-### ATOM-B: [Tytuł atomu, np. Rozliczenie roczne]
+### ATOM-B: [Tytuł atomu]
 * **Treść twierdzenia atomowego:** ...
 * **Powiązane źródło:** SOURCE-[NUMER]
 * **Dowód w źródle:** ...
 * **Status atomu:** 🟢 VERIFIED
+* **Data weryfikacji atomu:** [RRRR-MM-DD]
+* **Weryfikator:** [SENS Red Team / Audyt zewnętrzny]
 
 ---
 
@@ -31,9 +35,9 @@
 ---
 
 ## 4. Matryca Obliczeniowa (Jeśli dotyczy liczb)
-* **Wartości bazowe:** ...
-* **Kroki przeliczeniowe:** ...
-* **Wynik ostateczny:** ...
+* **Wartości bazowe (z atomów):** ...
+* **Kroki przeliczeniowe (wzory):** ...
+* **Wynik ostateczny (brutto / netto po ulgach):** ...
 
 ---
 
@@ -52,5 +56,5 @@
 ---
 
 ## 7. Materiał Wyjściowy dla Senseja (Editorial)
-*(Reguła: post nie jest dowodem w LAB. Post może czerpać WYŁĄCZNIE z powyższych zweryfikowanych atomów).*
+*(Reguła: post nie jest dowodem w LAB. Post może czerpać WYŁĄCZNIE ze zweryfikowanych atomów).*
 > [Gotowy tekst na X / FB]
