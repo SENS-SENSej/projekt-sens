@@ -24,12 +24,11 @@
 ## 3. Zakres Dowodowy
 
 ### CZEGO DOWODZI TO ŹRÓDŁO
-* **ATOM-0001-A:** Kwota bazowa do wyliczania podstawy wymiaru składki zdrowotnej dla ryczałtowców na rok 2026 wynosi dokładnie 9 228,64 zł.
+* **ATOM-0001-A:** Przeciętne miesięczne wynagrodzenie w sektorze przedsiębiorstw w IV kwartale 2025 r. wyniosło dokładnie 9 228,64 zł.
 
-### CZEGO NIE DOWODZI TO ŹRÓDŁO
-* Stawek procentowych ryczałtu podatkowego (3%–17%).
-* Wysokości samej składki w ujęciu kwotowym (jest to tylko wskaźnik bazowy, a nie kwota składki).
-* Zasad rozliczenia rocznego ani istnienia ulg podatkowych.
+### CZEGO NIE DOWODZI TO ŹRÓDŁO (Zakaz Nadinterpretacji)
+* Nie dowodzi wartości procentowych podstaw wymiaru (60%, 100%, 180%), które wynikają z odrębnej ustawy.
+* Nie dowodzi kwot składek ZUS ani stawek podatku ryczałtowego.
 
 ---
 
