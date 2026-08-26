@@ -24,12 +24,12 @@
 ## 3. Zakres Dowodowy (Granice Interpretacji)
 
 ### CZEGO DOWODZI TO ŹRÓDŁO
-* **ATOM-[X]:** [Konkretny fakt bezpośrednio wynikający z tekstu]
-* **ATOM-[Y]:** [Kolejny fakt]
+* **ATOM-[X]:** [Ściśle wyizolowany fakt wynikający wprost z tekstu, bez łączenia z innymi źródłami]
+* **ATOM-[Y]:** [Kolejny atomowy fakt]
 
 ### CZEGO NIE DOWODZI TO ŹRÓDŁO (Zakaz Nadinterpretacji)
-* [Czego kategorycznie nie wolno z tego dokumentu wnioskować bez dodatkowych dowodów]
-* [Obszary niepewności / brakujące konteksty]
+* [Czego kategorycznie nie wolno z tego dokumentu wnioskować bez dodatkowych źródeł]
+* [Obszary niepewności / zakazane ekstrapolacje]
 
 ---
 
