@@ -16,8 +16,8 @@
 ---
 
 ## 3. Przeszukane Źródła (Rejestr negatywny)
-* [Dokument / Archiwum X] $\rightarrow$ Brak wzmianki o [temat].
-* [Dokument / Archiwum Y] $\rightarrow$ Brak analizy skutków regulacji w tym zakresie.
+* [Dokument / Archiwum X] → Brak wzmianki o [temat].
+* [Dokument / Archiwum Y] → Brak analizy skutków regulacji w tym zakresie.
 
 ---
 
