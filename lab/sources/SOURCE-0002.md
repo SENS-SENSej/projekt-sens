@@ -24,25 +24,25 @@
 >
 > "Art. 81 ust. 2h. Ubezpieczony (...) może przyjąć jako miesięczną podstawę wymiaru składki (...) kwotę przychodów uzyskanych w poprzednim roku kalendarzowym (...). Tak ustaloną podstawę wymiaru składki ubezpieczony stosuje przez cały rok kalendarzowy."
 >
-> *(Mechanizm rozliczenia rocznego porównujący sumę składek miesięcznych z roczną podstawą wymiaru uregulowany w art. 81 ustawy).*
+> *(Mechanizm rocznego rozliczenia porównujący sumę składek rozliczonych w trakcie roku ze składką ustaloną od rocznej podstawy uregulowany w art. 81 ustawy).*
 
 ---
 
 ## 3. Zakres Dowodowy
 
 ### CZEGO DOWODZI TO ŹRÓDŁO
-* **ATOM-0001-B:** Istnienia 3 sztywnych progów przychodowych (60 tys. zł, 300 tys. zł) i odpowiadających im wskaźników podstawy (60%, 100%, 180% przeciętnego wynagrodzenia).
-* **ATOM-0001-C:** Prawa do metody uproszczonej (stała składka miesięczna wg przychodu z ubiegłego roku – art. 81 ust. 2h).
-* **ATOM-0001-D:** Istnienia mechanizmu rocznego wyrównania (dopłaty różnicy w razie przekroczenia progu lub zwrotu nadpłaty).
+* **ATOM-0001-B:** Istnienia 3 sztywnych progów przychodowych (do 60 tys. zł, 60–300 tys. zł, pow. 300 tys. zł) i odpowiadających im wskaźników podstawy (60%, 100%, 180% przeciętnego wynagrodzenia).
+* **ATOM-0001-C:** Istnienia metody uproszczonej (prawa do ustalenia stałej miesięcznej podstawy wg przychodu z poprzedniego roku kalendarzowego – art. 81 ust. 2h).
+* **ATOM-0001-D:** Istnienia mechanizmu rocznego rozliczenia składki, w którym składka wynikająca z rocznej podstawy jest porównywana z sumą składek rozliczonych w trakcie roku, a różnica może skutkować dopłatą albo zwrotem.
 
 ### CZEGO NIE DOWODZI TO ŹRÓDŁO (Zakaz Nadinterpretacji)
 * **Motywacji ustawodawcy:** Przepis nie zawiera uzasadnienia, dlaczego przyjęto progi kwotowe zamiast skali ciągłej.
-* **Jednostki redakcyjnej rozliczenia rocznego:** Wobec kolejnych nowelizacji nie przypisuje się arbitralnie jednego numeru ustępu w treści publicznej dla rozliczenia rocznego bez odrębnego badania stanu tekstu jednolitego.
-* **Zachowań rynkowych:** Ustawa nie dowodzi, czy przedsiębiorcy wstrzymują fakturowanie.
+* **Jednostki redakcyjnej rozliczenia rocznego:** W treści publicznej nie przypisuje się arbitralnie numeru ustępu dla dopłaty/zwrotu bez odrębnego badania stanu tekstu jednolitego.
+* **Zachowań rynkowych:** Ustawa nie dowodzi, jak na progi reagują przedsiębiorcy.
 
 ---
 
 ## 4. Powiązania w SENS
 * **Wykorzystano w CLAIM:** CLAIM-0001
 * **Wykorzystano w CASE:** CASE-001
-* **Powiązane pytania (Open Questions):** OQ-0001 (Brak uzasadnienia progów)
+* **Powiązane pytania (Open Questions):** OQ-0001
