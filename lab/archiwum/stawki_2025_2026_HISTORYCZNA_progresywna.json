@@ -1,0 +1,118 @@
+{
+  "_UWAGA": "WERSJA HISTORYCZNA, ZASTĄPIONA — nie używać jako źródła danych. Opisuje mechanizm sprzed korekty rozliczenia rocznego z sierpnia 2026. Aktualna wersja: /stawki_2025_2026.json w rootcie.",
+
+  "_meta": {
+    "opis": "Stawki i progi składki zdrowotnej dla przedsiębiorców w Polsce, okres styczeń 2026 vs luty 2026. Każda wartość liczbowa ma przypisane źródło - zgodnie z zasadą transparentności S.E.N.S. (weryfikowalny GitHub).",
+    "ostatnia_aktualizacja": "2026-08-03",
+    "uwaga": "Przed publikacją każda wartość MUSI być zweryfikowana z aktualnym obwieszczeniem ZUS / Monitorem Polskim na dany rok składkowy. Rok skladkowy biegnie od lutego do stycznia, nie pokrywa się z rokiem kalendarzowym."
+  },
+
+  "minimalne_wynagrodzenie": {
+    "rok_2026": {
+      "wartosc_zl": 4806,
+      "zrodlo": "ZUS.pl - komunikat o minimalnej podstawie wymiaru składki zdrowotnej na okres 2026-02-01 do 2027-01-31"
+    }
+  },
+
+  "okresy_skladkowe": {
+    "styczen_2026": {
+      "opis": "Ostatni miesiąc 'starego' roku składkowego (luty 2025 - styczeń 2026), podstawa liczona jako 75% ówczesnej płacy minimalnej",
+      "minimalna_skladka_zl": {
+        "skala": 314.96,
+        "liniowy": 314.96
+      },
+      "zrodlo": "poradnikprzedsiebiorcy.pl / wFirma - rozliczenie składki zdrowotnej 2026"
+    },
+    "luty_2026": {
+      "opis": "Pierwszy miesiąc nowego roku składkowego (luty 2026 - styczeń 2027), podstawa wraca do 100% minimalnego wynagrodzenia",
+      "minimalna_skladka_zl": {
+        "skala": 432.54,
+        "liniowy": 432.54
+      },
+      "zrodlo": "ZUS.pl, ifirma.pl - Składka zdrowotna 2026: zmiany dla przedsiębiorców"
+    }
+  },
+
+  "stawki_procentowe": {
+    "skala_podatkowa": {
+      "stawka_skladki": 0.09,
+      "podstawa": "dochod_narastajaco_miesiac_poprzedni",
+      "odliczenie_mozliwe": false,
+      "zrodlo": "ustawa o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych"
+    },
+    "podatek_liniowy": {
+      "stawka_skladki": 0.049,
+      "stawka_podatku": 0.19,
+      "podstawa": "dochod_narastajaco_miesiac_poprzedni",
+      "limit_odliczenia_roczny_zl_2026": 14100,
+      "zrodlo": "ifirma.pl - Limit odliczenia składki zdrowotnej na podatku liniowym 2026 / Obwieszczenie MF, Monitor Polski 2025-12-17"
+    },
+    "ryczalt": {
+      "progi_przychodu_roczny_zl": {
+        "do_60000": { "podstawa_pct_przecietnego_wynagrodzenia": 0.60, "przyklad_skladka_zl": 498.35 },
+        "60000_do_300000": { "podstawa_pct_przecietnego_wynagrodzenia": 1.00, "przyklad_skladka_zl": 830.58 },
+        "powyzej_300000": { "podstawa_pct_przecietnego_wynagrodzenia": 1.80, "przyklad_skladka_zl": 1495.04 }
+      },
+      "stawka_skladki": 0.09,
+      "zrodlo": "poradnikprzedsiebiorcy.pl - stawki ryczałtowe 2026"
+    }
+  },
+
+  "efekt_klifu_ryczalt_2026": {
+    "_meta_sens": "Moduł Audytowy - realny, obowiązujący w 2026 r. efekt skokowego wzrostu składki zdrowotnej przy przekroczeniu progu przychodu na ryczałcie. Zastępuje wcześniejszy błędny blok (nieistniejący 'projekt rządowy z sierpnia 2026'). Wszystkie liczby zweryfikowane wielosource'owo.",
+    "zrodlo_ogolne": "ZUS.pl, inFakt.pl, CGO Legal, Grant Thornton - stan na I-V 2026",
+
+    "podstawa_wyliczenia": {
+      "przecietne_wynagrodzenie_iv_kw_2025_zl": 9228.64,
+      "zrodlo": "GUS - komunikat o przeciętnym wynagrodzeniu w sektorze przedsiębiorstw za IV kw. 2025 r."
+    },
+
+    "mechanizm_narastajacy": {
+      "opis": "Próg liczony narastająco od początku roku w metodzie 'na bieżąco' (progresywnej). Przekroczenie progu podnosi składkę już od miesiąca przekroczenia - nie proporcjonalnie do nadwyżki, tylko skokowo dla całej podstawy.",
+      "metoda_alternatywna": "Istnieje też metoda uproszczona (stała składka na cały rok wg przychodu z roku poprzedniego) - Kalkulator MVP obsługuje wyłącznie metodę progresywną, bo to ona generuje 'efekt klifu' w czasie rzeczywistym.",
+      "zrodlo": "cgolegal.pl - zasady progów ryczałtu 2026"
+    },
+
+    "progi": [
+      {
+        "id": "prog_1",
+        "przychod_roczny_do_zl": 60000,
+        "podstawa_pct_przecietnego_wynagrodzenia": 60,
+        "skladka_miesieczna_zl": 498.35,
+        "komentarz_analityczny_sens": "Najniższy próg - najmniejsze działalności, składka stabilna do 60 000 zł przychodu rocznie."
+      },
+      {
+        "id": "prog_2",
+        "przychod_roczny_od_zl": 60000.01,
+        "przychod_roczny_do_zl": 300000,
+        "podstawa_pct_przecietnego_wynagrodzenia": 100,
+        "skladka_miesieczna_zl": 830.58,
+        "skok_wzgledem_poprzedniego_progu_zl_miesiecznie": 332.23,
+        "skok_wzgledem_poprzedniego_progu_zl_rocznie": 3986.76,
+        "komentarz_analityczny_sens": "Efekt klifu #1: nawet 1 zł przychodu ponad 60 000 zł podnosi składkę za KOLEJNY miesiąc o 332,23 zł - skokowo, nie proporcjonalnie do nadwyżki."
+      },
+      {
+        "id": "prog_3",
+        "przychod_roczny_od_zl": 300000.01,
+        "podstawa_pct_przecietnego_wynagrodzenia": 180,
+        "skladka_miesieczna_zl": 1495.04,
+        "skok_wzgledem_poprzedniego_progu_zl_miesiecznie": 664.46,
+        "skok_wzgledem_poprzedniego_progu_zl_rocznie": 7973.52,
+        "komentarz_analityczny_sens": "Efekt klifu #2: przekroczenie 300 000 zł kosztuje dodatkowo 664,46 zł/mies. (ok. 7 974 zł/rok) - a POWYŻEJ tego progu składka już się nie zmienia, więc system relatywnie mniej obciąża największych niż tych balansujących tuż nad granicą."
+      }
+    ],
+
+    "ulga_50_procent_skladek": {
+      "opis": "Ryczałtowiec MOŻE odliczyć 50% zapłaconych w roku podatkowym składek zdrowotnych - pomniejsza to PODSTAWĘ OPODATKOWANIA (przychód), a nie samą składkę ZUS. To jest różnica względem skali, gdzie odliczenie w ogóle nie istnieje.",
+      "wzor": "podstawa_opodatkowania_po_uldze = przychod_roczny - (suma_zaplaconych_skladek_zdrowotnych_w_roku * 0.5)",
+      "uwaga_dla_kalkulatora": "Realna korzyść podatkowa z ulgi zależy od stawki ryczałtu właściwej dla danej działalności (8,5% / 12% / 15% / 17% itd.) - Kalkulator MUSI pobrać tę stawkę od użytkownika osobno, nie wolno zakładać jednej uniwersalnej wartości.",
+      "zrodlo": "infakt.pl - Składka zdrowotna dla ryczałtu w 2026 r., mechanizm odliczenia 50%"
+    }
+  },
+
+  "przeliczniki_wow": {
+    "opis": "Do modułu 'kontekst-przelicznik' w UI - wartości referencyjne, aktualizować co kwartał",
+    "sredni_bak_paliwa_zl": 280,
+    "sredni_abonament_streaming_zl": 45
+  }
+}

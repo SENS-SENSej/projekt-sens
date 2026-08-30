@@ -10,11 +10,16 @@ Ruch obywatelsko-technokratyczny + platforma civic tech. Misja: obniżyć polary
 
 ## Struktura repo (stan wiedzy z rozmowy)
 
+- `SENS_OPERATING_SYSTEM_v0.1.md` — **główny, żywy standard SENS**. Poprzednie dokumenty metodologii zostały skonsolidowane w tym pliku — to jest teraz jedyny obowiązujący standard.
 - `index.html` — strona główna (hero, 3 filary: LICZYMY/AUDYTUJEMY/PROJEKTUJEMY, karta modułu Case #001, sekcja Laboratorium Państwa, sekcja Konstytucja SENS, transparentność/GitHub link)
 - `klif.html` — SENS Case #001: Efekt Klifu (ryczałt 2026) — **golden master, status: zamknięty po GATE 2, czeka na GATE 3 (testy na żywych ludziach)**
 - `stawki_2025_2026.json` — jedyne źródło prawdy dla stawek/progów/wzorów. Kalkulatory MAJĄ czytać stąd, nie z zahardkodowanych wartości w HTML.
 - `SENS_CASE_001_IMPLEMENTATION_SPEC.md` — kontrakt wdrożeniowy dla Case #001 (wireframe, dane, lista zakazanych zmian)
-- Dokumenty metodologii (v0.1 → v0.3) — historia decyzji, nie musisz ich czytać w całości, ale zasady poniżej są ich destylatem.
+- `lab/` — katalog roboczy research/claims:
+  - `lab/sources/` — SOURCE-000X.md, pojedyncze udokumentowane źródła pierwotne
+  - `lab/claims/` — CLAIM-000X.md, twierdzenia zbudowane na źródłach
+  - `lab/templates/` — szablony (template-claim.md, template-question.md, template-source.md)
+  - `lab/archiwum/` — zamknięte/zastąpione materiały (RAPID-000X, RAPID-RETRO-001, SENS_RAPID_CHECK_v0.1.md, oraz historyczne, jawnie oznaczone wersje danych — np. `stawki_2025_2026_HISTORYCZNA_progresywna.json`, nieaktualna wersja mechanizmu efektu klifu sprzed korekty z sierpnia 2026, **nie używać jako źródła**)
 
 ## TWARDE ZASADY — obowiązują przy KAŻDEJ zmianie w repo
 
