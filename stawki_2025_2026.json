@@ -1,0 +1,139 @@
+{
+  "_meta": {
+    "opis": "Stawki i progi używane przez Kalkulator Efektu Klifu (SENS Case #001) oraz przyszłe moduły podatkowe SENS.",
+    "waluta": "PLN",
+    "ostatnia_aktualizacja": "2026-08-30",
+    "uwaga": "Każda liczba w tym pliku musi mieć źródło. Przy każdej zmianie ustawowej aktualizuj 'zrodlo' i 'data_publikacji'. Numery ustępów podawane tylko tam, gdzie zostały bezpośrednio potwierdzone w tekście ustawy lub oficjalnym materiale ZUS/URE — w razie wątpliwości opisujemy mechanizm słownie, bez numeru (Zasada 7 Metodologii SENS)."
+  },
+
+  "minimalne_wynagrodzenie": {
+    "2026": {
+      "kwota_zl": 4806,
+      "zrodlo": "Rozporządzenie Rady Ministrów ws. minimalnego wynagrodzenia za pracę w 2026 r."
+    }
+  },
+
+  "przecietne_wynagrodzenie": {
+    "IV_kw_2025": {
+      "kwota_zl": 9228.64,
+      "zrodlo": "Komunikat Prezesa GUS w sprawie przeciętnego miesięcznego wynagrodzenia w sektorze przedsiębiorstw, włącznie z wypłatami z zysku, w IV kwartale 2025 r.",
+      "data_publikacji": "2026-01-22"
+    }
+  },
+
+  "skladka_zdrowotna": {
+    "skala_podatkowa": {
+      "stawka_procent_dochodu": 9,
+      "brak_mozliwosci_odliczenia": true,
+      "minimalna_skladka": {
+        "styczen_2026": {
+          "kwota_zl": 314.96,
+          "podstawa_wymiaru_procent_min_wynagrodzenia": 75,
+          "opis": "Ostatni miesiąc 'starego' roku składkowego (luty 2025 – styczeń 2026), podstawa liczona od 75% minimalnego wynagrodzenia",
+          "zrodlo": "poradnikprzedsiebiorcy.pl / wFirma.pl"
+        },
+        "od_lutego_2026_do_stycznia_2027": {
+          "kwota_zl": 432.54,
+          "podstawa_wymiaru_procent_min_wynagrodzenia": 100,
+          "opis": "Nowy rok składkowy — powrót do zasady 100% minimalnego wynagrodzenia jako podstawy",
+          "zrodlo": "zus.pl — Minimalna składka na ubezpieczenie zdrowotne w 2026 r."
+        }
+      }
+    },
+
+    "podatek_liniowy": {
+      "stawka_procent_dochodu": 4.9,
+      "limit_odliczenia_rocznie_zl": 14100,
+      "minimalna_skladka": {
+        "styczen_2026": { "kwota_zl": 314.96, "zrodlo": "poradnikprzedsiebiorcy.pl / wFirma.pl" },
+        "od_lutego_2026_do_stycznia_2027": { "kwota_zl": 432.54, "zrodlo": "zus.pl" }
+      }
+    },
+
+    "ryczalt": {
+      "stawka_procent": 9,
+      "podstawa_prawna_progow": "art. 81 ust. 2e oraz ust. 2f ustawy o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych",
+      "metoda_uproszczona": {
+        "opis": "Przedsiębiorca spełniający warunki ustawowe może ustalać miesięczną podstawę składki na podstawie przychodu z poprzedniego roku i stosować ją przez cały rok kalendarzowy, zamiast rozliczać się narastająco w trakcie roku.",
+        "podstawa_prawna": "art. 81 ust. 2h ustawy o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych",
+        "zrodlo": "zus.pl — FAQ ws. zasad ustalania podstawy wymiaru składki zdrowotnej"
+      },
+      "progi_roczne_przychodu": [
+        {
+          "id": "prog_1",
+          "przychod_do_zl": 60000,
+          "podstawa_pct_przecietnego_wynagrodzenia": 60,
+          "podstawa_wymiaru_zl": 5537.18,
+          "skladka_miesieczna_zl": 498.35,
+          "skladka_roczna_zl": 5980.20
+        },
+        {
+          "id": "prog_2",
+          "przychod_od_zl": 60000.01,
+          "przychod_do_zl": 300000,
+          "podstawa_pct_przecietnego_wynagrodzenia": 100,
+          "podstawa_wymiaru_zl": 9228.64,
+          "skladka_miesieczna_zl": 830.58,
+          "skladka_roczna_zl": 9966.96
+        },
+        {
+          "id": "prog_3",
+          "przychod_od_zl": 300000.01,
+          "podstawa_pct_przecietnego_wynagrodzenia": 180,
+          "podstawa_wymiaru_zl": 16611.55,
+          "skladka_miesieczna_zl": 1495.04,
+          "skladka_roczna_zl": 17940.48
+        }
+      ],
+      "zrodlo_progow": "zus.pl — Informacja w sprawie podstawy wymiaru składki oraz kwoty składki na ubezpieczenie zdrowotne w 2026 r.",
+      "ulga_50_procent_skladek": {
+        "opis": "Ryczałtowiec może odliczyć 50% zapłaconych w roku podatkowym składek zdrowotnych — pomniejsza to podstawę opodatkowania (przychód), nie samą składkę ZUS.",
+        "wzor": "podstawa_opodatkowania_po_uldze = przychod_roczny - (suma_zaplaconych_skladek_zdrowotnych_w_roku * 0.5)",
+        "podstawa_prawna": "art. 11 ust. 1a ustawy o zryczałtowanym podatku dochodowym od niektórych przychodów osiąganych przez osoby fizyczne",
+        "uwaga_dla_kalkulatora": "Realna korzyść podatkowa zależy od stawki ryczałtu właściwej dla danej działalności (3% / 5,5% / 8,5% / 10% / 12% / 14% / 15% / 17%) — kalkulator musi pobrać tę stawkę osobno."
+      },
+      "mechanizm_rozliczenia_rocznego": {
+        "opis": "Jeśli suma miesięcznych składek zapłaconych w trakcie roku jest niższa niż składka wyliczona od ostatecznej rocznej podstawy (bo przychód przekroczył próg), przedsiębiorca dopłaca różnicę przy rozliczeniu rocznym. Jeśli zapłacił więcej — należy mu się zwrot.",
+        "podstawa_prawna": "art. 81 ustawy o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych — celowo bez wskazania konkretnego ustępu w treści publikowanej (ustęp podlegał kilkukrotnej korekcie w toku audytu i wymaga bezpośredniego sprawdzenia w aktualnym tekście ustawy przed przypięciem numeru)",
+        "zrodlo_pomocnicze": "zus.pl/portal/pomoc/roczne_rozliczenie_skladki_zdrow.html — oficjalna strona ZUS opisująca panel rozliczenia rocznego (kwota do dopłaty / kwota do zwrotu)"
+      }
+    }
+  },
+
+  "efekt_klifu_ryczalt_2026": {
+    "_meta_sens": "Moduł Audytowy — zweryfikowany po pełnym cyklu GATE 1/2/3. Dane identyczne z sekcją skladka_zdrowotna.ryczalt powyżej — ten węzeł istnieje dla wygody kalkulatora (jeden odczyt zamiast łączenia kilku ścieżek).",
+    "skoki_miedzy_progami": [
+      {
+        "z_progu": "prog_1",
+        "do_progu": "prog_2",
+        "roznica_brutto_zl": 3986.76,
+        "komentarz": "Nawet 1 zł przychodu ponad 60 000 zł podnosi ostateczną roczną składkę o tę kwotę — mechanizm rozliczenia rocznego stosuje wyższy próg do całego roku, nie tylko od miesiąca przekroczenia."
+      },
+      {
+        "z_progu": "prog_2",
+        "do_progu": "prog_3",
+        "roznica_brutto_zl": 7973.52,
+        "komentarz": "Powyżej 300 000 zł składka się stabilizuje — system relatywnie mniej obciąża najwyższe przychody niż te balansujące tuż nad granicą progu."
+      }
+    ],
+    "zrodlo_zjawiska": "Analizy branżowe (m.in. vatax.pl) opisują ten mechanizm jako tzw. 'efekt klifu'.",
+    "stawki_ryczaltu_do_wyliczenia_ulgi": [0.17, 0.15, 0.14, 0.12, 0.10, 0.085, 0.055, 0.03],
+    "wynik_netto_po_uldze_wg_stawki": {
+      "wzor": "roznica_brutto * (1 - 0.5 * stawka_ryczaltu)",
+      "zakres_dla_skoku_prog1_do_prog2": {
+        "min_zl": 3648.68,
+        "min_przy_stawce": 0.17,
+        "max_zl": 3927.96,
+        "max_przy_stawce": 0.03
+      }
+    }
+  },
+
+  "przeliczniki_wow": {
+    "opis": "Kontekstowe porównania do warstwy komunikacyjnej (nie do warstwy FAKT) — pomagają czytelnikowi wyobrazić sobie kwotę, ale nie zastępują liczby.",
+    "przyklady": [
+      "Równowartość kilku pełnych baków paliwa rocznie",
+      "Równowartość kilkunastu miesięcznych abonamentów streamingowych"
+    ]
+  }
+}
